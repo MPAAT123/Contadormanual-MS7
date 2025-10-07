@@ -1,31 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import TextButton from './Compnents/TwxtButton';
 
 export default function App() {
-const [conteo, setconteo] useState
 
+const [conteo, setConteo] = useState(0)
+
+const Contar= () => setConteo (conteo + 1);
+const Reiniciar= () => setConteo(0);
 
   return (
     <View 
      style={styles.container}>
-
        <Text
-       style={styles.conteostyle}>
-        Conteo: 
-        
-        </Text>
-       
+       style={styles.conteostyle}>  Conteo: </Text>
       <View style={styles.conteoConteiner}>
 
-        <Text style={styles.conteoText}> 0 </Text>
+        <Text style={styles.conteoText}> {conteo}  </Text>
 
       </View>
     
-    <View>
-      <Button title ="contar" onPress={}/>
-      <Button title = "Reiniciar"/>
-  
+    <View style={styles.controlConteiner}>
+    
+
+    <TextButton title = 'Contar' onTab={Contar}/>
+    <TextButton title = 'Reiniciar'onTab={Reiniciar}/> 
+    
     </View>
 
        <StatusBar style="auto" />
@@ -38,14 +39,14 @@ const [conteo, setconteo] useState
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#14dbf1',
+    flex: 0,
+    backgroundColor: 'white',
     marginVertical: 40,
     marginHorizontal: 16, 
   },
 
      conteoConteiner:{
-      flex: 1,
+      flex: 0,
        marginVertical: 48,
        borderColor: '#302f2f',
        borderWidth: 2,
@@ -57,11 +58,11 @@ const styles = StyleSheet.create({
     conteostyle: {
       flex:0, 
      fontSize: 45,
-     backgroundColor:'yellow',
+     backgroundColor:'white',
    },
    conteoText:{
     fontSize: 48,
-    color: 'red'
+    color: 'Black'
    },
    controlConteiner:{
     flex: 0,
@@ -69,6 +70,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent:'space-evenly',
 
+   },
+   ButtonStyle:{
+   backgroundColor:"green"
+
    }
+
+
 
 });
